@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neuroscience Insights: Language and Emotion</title>
+    <script src="https://cdn.tailwindcss.com/3.4.3"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Base styles */
+        body {
+            @apply bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 font-sans;
+        }
+        /* Card hover effect */
+        .content-card {
+            @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 transition-all duration-300 hover:shadow-xl hover:border hover:border-indigo-300 dark:hover:border-indigo-600;
+        }
+        /* Button hover effect */
+        .theme-toggle-button {
+            @apply p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 transition-all duration-300 hover:scale-110 hover:bg-indigo-100 dark:hover:bg-indigo-800;
+        }
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0; /* Start hidden */
+        }
+        /* Apply staggered delay */
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        .fade-in-delay-3 { animation-delay: 0.3s; }
+        .fade-in-delay-4 { animation-delay: 0.4s; }
+        .fade-in-delay-5 { animation-delay: 0.5s; }
+        .fade-in-delay-6 { animation-delay: 0.6s; }
+
+        /* Custom scrollbar for Webkit browsers */
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            @apply bg-gray-100 dark:bg-gray-800;
+        }
+        ::-webkit-scrollbar-thumb {
+            @apply bg-indigo-300 dark:bg-indigo-600 rounded-full;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            @apply bg-indigo-400 dark:bg-indigo-500;
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
+            <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                <h1 class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Neuroscience Insights</h1>
+                <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun" id="theme-icon-light"></i>
+                    <i class="fas fa-moon hidden" id="theme-icon-dark"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-12 text-center fade-in">Exploring the neural basis of language and emotion.</p>
+
+            <!-- Language Processing Section -->
+            <section id="language" class="mb-16">
+                <h2 class="text-3xl font-semibold mb-6 border-l-4 border-indigo-500 pl-4 fade-in">Language Processing</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="content-card fade-in fade-in-delay-1">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Event-Related Potentials (ERPs)</h3>
+                        <p class="mb-2"><strong class="font-medium">N400:</strong> A negative-going wave peaking around 400ms post-stimulus, sensitive to semantic violations or unexpectedness. Larger N400 amplitude indicates greater semantic processing cost (e.g., inconsistent word in a sentence).</p>
+                        <p><strong class="font-medium">P600:</strong> A positive-going wave peaking around 600ms post-stimulus, often associated with syntactic violations or grammatical errors, reflecting reprocessing or repair mechanisms.</p>
+                    </div>
+                    <div class="content-card fade-in fade-in-delay-2">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Key Brain Regions</h3>
+                        <p class="mb-2"><strong class="font-medium">Broca's Area & Wernicke's Area:</strong> Traditionally linked to language production and comprehension, respectively. Modern views recognize these areas are part of larger networks and involved in other cognitive functions, not strictly language-specific.</p>
+                        <p>Neural circuits for language involve temporal and frontal regions, particularly in the left hemisphere for most individuals.</p>
+                    </div>
+                    <div class="content-card md:col-span-2 fade-in fade-in-delay-3">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Neurocognitive Model of Language</h3>
+                        <p>A proposed model involves three core components:</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1">
+                            <li><strong class="font-medium">Memory (Temporal Lobe):</strong> Storage of linguistic information (phonology, semantics, syntax) in the mental lexicon, influenced by individual experience.</li>
+                            <li><strong class="font-medium">Integration (Inferior Frontal Gyrus):</strong> Combining multi-dimensional linguistic information into coherent representations.</li>
+                            <li><strong class="font-medium">Control (Frontal Cortex):</strong> Linking language processing with action, decision-making, and cognitive control.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emotion Section -->
+            <section id="emotion" class="mb-16">
+                <h2 class="text-3xl font-semibold mb-6 border-l-4 border-indigo-500 pl-4 fade-in fade-in-delay-1">Emotion Processing</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="content-card fade-in fade-in-delay-2">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Basic vs. Complex Emotions</h3>
+                        <p class="mb-2"><strong class="font-medium">Basic Emotions:</strong> Universally recognized (happiness, sadness, anger, fear, disgust, surprise). Present across cultures and age groups.</p>
+                        <p><strong class="font-medium">Complex Emotions:</strong> Develop through experience and social context (e.g., guilt, shame, pride). Learned rather than innate.</p>
+                    </div>
+                    <div class="content-card fade-in fade-in-delay-3">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Dimensional Models</h3>
+                        <p class="mb-2">Emotions can be mapped onto dimensions:</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li><strong class="font-medium">Valence:</strong> Pleasantness vs. Unpleasantness.</li>
+                            <li><strong class="font-medium">Arousal:</strong> Intensity (Calm vs. Excited).</li>
+                            <li><strong class="font-medium">Dominance:</strong> Control (Submissive vs. Dominant) - added in 3D models to distinguish emotions like anger and fear.</li>
+                        </ul>
+                    </div>
+                    <div class="content-card fade-in fade-in-delay-4">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Key Brain Systems</h3>
+                        <p class="mb-2"><strong class="font-medium">Limbic System:</strong> A collection of structures (including amygdala, hippocampus, hypothalamus) traditionally linked to emotion. Papez circuit (1937) was an early model.</p>
+                        <p><strong class="font-medium">Amygdala:</strong> Crucial for fear processing, fear conditioning, and detecting salient/threatening stimuli. Also involved in processing other emotions and social signals.</p>
+                         <p><strong class="font-medium">Insula:</strong> Involved in interoception and disgust.</p>
+                         <p><strong class="font-medium">Orbitofrontal Cortex (OFC):</strong> Involved in evaluating emotional value and decision-making.</p>
+                    </div>
+                    <div class="content-card fade-in fade-in-delay-5">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Fear Conditioning & Amygdala</h3>
+                        <p class="mb-2">The amygdala is central to learning associations between neutral stimuli and aversive outcomes (fear conditioning).</p>
+                        <p class="mb-2">Patient SM, with bilateral amygdala damage, showed impaired fear recognition and conditioning, highlighting the amygdala's role.</p>
+                        <p><strong class="font-medium">Two Pathways to Amygdala:</strong></p>
+                         <ul class="list-disc list-inside space-y-1 mt-1">
+                            <li><strong class="font-medium">Low Road (Fast):</strong> Thalamus -> Amygdala. Quick, rough assessment for immediate reaction.</li>
+                            <li><strong class="font-medium">High Road (Slow):</strong> Thalamus -> Cortex -> Amygdala. Slower, detailed analysis for accurate assessment.</li>
+                         </ul>
+                    </div>
+                     <div class="content-card fade-in fade-in-delay-6">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Emotion & Cognition Interaction</h3>
+                        <p class="mb-2">Emotion and cognition are deeply intertwined, not separate systems. Emotional states influence attention, memory, and decision-making.</p>
+                        <p class="mb-2">Strong emotions can enhance memory for events (mediated by amygdala-hippocampus interactions).</p>
+                        <p>Heightened emotional states (like anger or fear) can impair cognitive control and perspective-taking (Theory of Mind), potentially leading to poor decisions.</p>
+                    </div>
+                     <div class="content-card fade-in fade-in-delay-1">
+                        <h3 class="text-xl font-semibold mb-3 text-indigo-700 dark:text-indigo-400">Emotion Regulation</h3>
+                        <p class="mb-2">Strategies to manage emotional responses involve prefrontal cortex regions modulating limbic activity.</p>
+                        <p>Allowing time for cognitive systems ("System 2") to engage can prevent impulsive reactions driven by immediate emotional responses ("System 1"). Techniques like cognitive reappraisal or even simple actions like washing hands with cool water might help regulate negative affect by influencing brain temperature/activity.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-100 dark:bg-gray-800 mt-auto">
+            <div class="container mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400">
+                <p class="text-sm">Author: hhs</p>
+                <p class="text-sm">&copy; <span id="copyright-year"></span> Neuroscience Insights. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // --- Dark Mode Toggle ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIconLight = document.getElementById('theme-icon-light');
+        const themeIconDark = document.getElementById('theme-icon-dark');
+        const htmlElement = document.documentElement;
+
+        // Function to apply theme
+        const applyTheme = (theme) => {
+            if (theme === 'dark') {
+                htmlElement.classList.add('dark');
+                themeIconLight.classList.add('hidden');
+                themeIconDark.classList.remove('hidden');
+            } else {
+                htmlElement.classList.remove('dark');
+                themeIconLight.classList.remove('hidden');
+                themeIconDark.classList.add('hidden');
+            }
+        };
+
+        // Check for saved theme in localStorage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Determine initial theme
+        let currentTheme;
+        if (savedTheme) {
+            currentTheme = savedTheme;
+        } else {
+            currentTheme = prefersDark ? 'dark' : 'light';
+        }
+        applyTheme(currentTheme);
+
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme); // Save preference
+        });
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            // Only change if no theme is explicitly saved in localStorage
+            if (!localStorage.getItem('theme')) {
+                const newSystemTheme = event.matches ? 'dark' : 'light';
+                applyTheme(newSystemTheme);
+            }
+        });
+
+        // --- Copyright Year ---
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        // --- Fade-in Animation Observer ---
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null, // relative to document viewport
+            rootMargin: '0px',
+            threshold: 0.1 // trigger when 10% of the element is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Element is visible, force reflow/repaint before adding class might ensure animation runs
+                    // void entry.target.offsetWidth; // Optional: force reflow
+                    entry.target.style.opacity = 1; // Start animation
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        };
+
+        const intersectionObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        fadeInElements.forEach(el => {
+            intersectionObserver.observe(el);
+        });
+
+    </script>
+</body>
+</html>
+
